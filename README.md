@@ -5,3 +5,5 @@
 ### THIS IS YOUR README
 
 I started by thinking of what ideas/themes I wanted to include in my clock. I really want to explore the idea of time moving through us (as believed in other cultures) instead of us moving through time (how we traditionally see it). I also want to look into how time moves differently in relation to space.
+
+I then completely scrapped all of that, while it was an interesting concept I wanted to go for something simpler so I stay sane. I decided to design a cake clock, where the candles lights and are then blown out, and a slice is taken every hour.

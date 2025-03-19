@@ -11,3 +11,5 @@ I then completely scrapped all of that, while it was an interesting concept I wa
 To start with I made some slices in Adobe Illustrator, and exported all 12 slices as seperate images. I then assembled them in code to make a full circle. These slices will later be replaced with actual cake slices, but I want to sort out my code before full finalising my visuals. 
 
 I then finalised my Madea clock, where the numbers change size and colour according to the time. 
+
+I coded an if statement that make parts of the cake move out and dissapear on the first second of every hour. 

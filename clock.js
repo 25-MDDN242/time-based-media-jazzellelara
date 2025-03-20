@@ -65,6 +65,7 @@ function draw_clock(obj) {
   }
 
   if(firstRun){ //importing images
+    //~~~~~~~~~~~~slice images~~~~~~~~~~~~
     s1 = loadImage('images/slice1.png');
     s2 = loadImage('images/slice2.png');
     s3 = loadImage('images/slice3.png');
@@ -77,7 +78,9 @@ function draw_clock(obj) {
     s10 = loadImage('images/slice10.png');
     s11 = loadImage('images/slice11.png');
     s12 = loadImage('images/slice12.png');
-    circle = loadImage('images/circle.png');
+    //~~~~~~~~~~~~test circle images~~~~~~~~~~~~
+    greyCircle = loadImage('images/circle.png');
+    //~~~~~~~~~~~~plate images~~~~~~~~~~~~
     p1 = loadImage('images/plate1.png');
     p2 = loadImage('images/plate2.png');
     p3 = loadImage('images/plate3.png');
@@ -90,6 +93,24 @@ function draw_clock(obj) {
     p10 = loadImage('images/plate10.png');
     p11 = loadImage('images/plate11.png');
     p12 = loadImage('images/plate12.png');
+    //~~~~~~~~~~~~fire images~~~~~~~~~~~~
+    f1 = loadImage('images/fire1.png');
+    f2 = loadImage('images/fire2.png');
+    f3 = loadImage('images/fire3.png');
+    f4 = loadImage('images/fire4.png');
+    //~~~~~~~~~~~~candle flame images~~~~~~~~~~~~  
+    c1 = loadImage('images/candle1.png');
+    c2 = loadImage('images/candle2.png');
+    c3 = loadImage('images/candle3.png');
+    c4 = loadImage('images/candle4.png');
+    c5 = loadImage('images/candle5.png');
+    c6 = loadImage('images/candle6.png');
+    c7 = loadImage('images/candle7.png');
+    c8 = loadImage('images/candle8.png');
+    c9 = loadImage('images/candle9.png');
+    c10 = loadImage('images/candle10.png');
+    c11 = loadImage('images/candle11.png');
+    c12 = loadImage('images/candle12.png');
     firstRun = false
   }
 
@@ -102,13 +123,14 @@ function setTable() {
   background("#fae")
 
   push()
-  image(circle, -170, -170); 
-  //this ciricle will be replaced by the plate, it is currently 340px, if size changes coordinates will need to change. 
+  image(greyCircle, -170, -170); 
+  //this circle will be replaced by the plate, it is currently 340px, if size changes coordinates will need to change. 
   pop()
 
   let s4X = 0 
   let s4Y = 0;
 
+  //~~~~~~~~~~~~slice images~~~~~~~~~~~~
   push()
     rotate(270)
     image(p1, 0, 0);
@@ -136,7 +158,7 @@ function setTable() {
     image(p12, 0, 0);
   pop()
 
-
+  //~~~~~~~~~~~~plate images~~~~~~~~~~~~
   push()
     rotate(270)
     image(s1, 0, 0);
@@ -169,44 +191,290 @@ function setTable() {
   let exampleHour = 8
   let secondsPrecise   = seconds + (millis / 1000.0);
 
-  if (minutes < 1) {
+  //----------------silly code making sure the slices stay GONE----------------
+  if (ReadableHour > 1){ //Hour 1 
+    push()
+    rotate(-120)
+    rotate(1 * 30)
+    image(p1, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 2){ //Hour 2
+    push()
+    rotate(-120)
+    rotate(2 * 30)
+    image(p2, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 3){ //Hour 3
+    push()
+    rotate(-120)
+    rotate(3 * 30)
+    image(p3, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 4){ //Hour 4
+    push()
+    rotate(-120)
+    rotate(4 * 30)
+    image(p4, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 5){ //Hour 5
+    push()
+    rotate(-120)
+    rotate(5 * 30)
+    image(p5, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 6){ //Hour 6
+    push()
+    rotate(-120)
+    rotate(6 * 30)
+    image(p6, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 7){ //Hour 7
+    push()
+    rotate(-120)
+    rotate(7 * 30)
+    image(p7, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 8){ //Hour 8
+    push()
+    rotate(-120)
+    rotate(8 * 30)
+    image(p8, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 9){ //Hour 9
+    push()
+    rotate(-120)
+    rotate(9 * 30)
+    image(p9, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 10){ //Hour 10
+    push()
+    rotate(-120)
+    rotate(10 * 30)
+    image(p10, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 11){ //Hour 11
+    push()
+    rotate(-120)
+    rotate(11 * 30)
+    image(p11, 0, 0)
+    pop()
+  }
+
+  if (ReadableHour > 12){ //Hour 12
+    push()
+    rotate(-120)
+    rotate(12 * 30)
+    image(p12, 0, 0)
+    pop()
+  }
+  //----------------end of silly code----------------
+
+  if (minutes < 1) { //create slices to move out
     push()
     rotate(-120)
     let emptyPlate = eval("p"+ReadableHour)
-    console.log("p"+ReadableHour)
+   // console.log("p"+ReadableHour)
     let highlightedSlice = eval("s"+ReadableHour)
-    console.log("s"+ReadableHour)
+   // console.log("s"+ReadableHour)
     rotate(ReadableHour * 30)
-    //image(emptyplate)need to get cake plate slice as well as cake slice make the same thing
     image(emptyPlate, 0, 0)
     image(highlightedSlice, 0+secondsPrecise*128, 0+secondsPrecise*32)
-    //image(emptyplate)
     pop()
   }
+
+  if (minutes > 0) { //makes sure slice stays gone 
+    push()
+    rotate(-120)
+    let emptyPlate = eval("p"+ReadableHour)
+   // console.log("p"+ReadableHour)
+    rotate(ReadableHour * 30)
+    image(emptyPlate, 0, 0)
+    pop()
+  }
+
+//------------------------------Minute Functions------------------------------
+
+//------------------------------Second Functions------------------------------
+//could put seconds candles in a MASSIVE if statement
+if (seconds > 5){ //5
+  push()
+  rotate(-120)
+  rotate(1 * 30)
+  image(c1, 0, 0)
+  pop()
+}
+
+if (seconds > 10){ //10 seconds
+  push()
+  rotate(-120)
+  rotate(2 * 30)
+  image(c2, 0, 0)
+  pop()
+}
+
+if (seconds > 15){ //15 seconds
+  push()
+  rotate(-120)
+  rotate(3 * 30)
+  image(c3, 0, 0)
+  pop()
+}
+
+if (seconds > 20){ //20 seconds
+  push()
+  rotate(-120)
+  rotate(4 * 30)
+  image(c4, 0, 0)
+  pop()
+}
+
+if (seconds > 25){ //25 seconds
+  push()
+  rotate(-120)
+  rotate(5 * 30)
+  image(c5, 0, 0)
+  pop()
+}
+
+if (seconds > 30){ //30 seconds
+  push()
+  rotate(-120)
+  rotate(6 * 30)
+  image(c6, 0, 0)
+  pop()
+}
+
+if (seconds > 35){ //35 seconds
+  push()
+  rotate(-120)
+  rotate(7 * 30)
+  image(c7, 0, 0)
+  pop()
+}
+
+if (seconds > 40){ //40 seconds
+  push()
+  rotate(-120)
+  rotate(8 * 30)
+  image(c8, 0, 0)
+  pop()
+}
+
+if (seconds > 45){ //45 seconds
+  push()
+  rotate(-120)
+  rotate(9 * 30)
+  image(c9, 0, 0)
+  pop()
+}
+
+if (seconds > 50){ //50 seconds
+  push()
+  rotate(-120)
+  rotate(10 * 30)
+  image(c10, 0, 0)
+  pop()
+}
+
+if (seconds > 55){ //55 seconds
+  push()
+  rotate(-120)
+  rotate(11 * 30)
+  image(c11, 0, 0)
+  pop()
+}
+
+if (seconds > 60){ //60 seconds 
+  push()
+  rotate(-120)
+  rotate(12 * 30)
+  image(c12, 0, 0)
+  pop()
+}
+
 
   textSize(50); //hours debug
   text(ReadableHour +M, -400, -160)
 
-//------------------------------Alarm Functions------------------------------
-
-
-
-
-
 //=========================END OF SET TABLE FUNCTION=========================
 }
-
-//------------------------------Reset Functions------------------------------
+//------------------------------Set the Table (Function)------------------------------
 setTable();
 
-//trying to have darkness cover screen and reset at am pm transition
+//------------------------------All Candles Light Function------------------------------
+function allCandle() {
+  push()
+    rotate(270)
+    image(c1, 0, 0);
+    rotate(30)
+    image(c2, 0, 0);
+    rotate(30)
+    image(c3, 0, 0);
+    rotate(30)
+    image(c4, 0, 0);
+    rotate(30)
+    image(c5, 0, 0);
+    rotate(30)
+    image(c6, 0, 0);
+    rotate(30)
+    image(c7, 0, 0);
+    rotate(30)
+    image(c8, 0, 0);
+    rotate(30)
+    image(c9, 0, 0);
+    rotate(30)
+    image(c10, 0, 0);
+    rotate(30)
+    image(c11, 0, 0);
+    rotate(30)
+    image(c12, 0, 0);
+  pop()
+  }
 
-let EXhours = 12
-let EXminutes = 59
-let EXseconds = 50
-if(EXhours == 12 && EXminutes == 59 && EXseconds == 50){
+//------------------------------Alarm Functions------------------------------
 
-  rect(960, 500, 480, -250)
+if (obj.seconds_until_alarm == -1) {
+  resetTable()
+} else if (obj.seconds_until_alarm > 2 && obj.seconds_until_alarm < 3) { //candles light
+  allCandle()
+} else if (obj.seconds_until_alarm > 1 && obj.seconds_until_alarm < 2) { //candles flare
+  image(f1, -170, -170)
+} else if (obj.seconds_until_alarm > 0 && obj.seconds_until_alarm < 1) { //candles join
+  image(f2, -170, -170)
+} else if (obj.seconds_until_alarm == 0) { //candles engulf the cake in flames
+    if (millis < 500) {
+      image(f3, -170, -170)
+    } else { 
+      image(f4, -170, -170)
+    }
+}
+
+console.log(int(obj.seconds_until_alarm))
+
+//------------------------------Reset Functions------------------------------
+function resetTable (){
+  erase()
+  setTable()
 }
 
 }

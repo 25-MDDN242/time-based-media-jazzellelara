@@ -36,3 +36,9 @@ I then added in the candles on the cake, representing the seconds. A candle is l
 
 #### *ReadMe*
 At this point I formatted my ReadMe, leaving spaces to fill in information later. 
+
+#### *Importing Assets*
+I created all the image assets in Adobe Illustrator, and imported them all in. 
+
+#### *Minutes - Strawberries*
+I then added some strawberries on a plate to the side, every five minutes one is taken untill none remain on the plate.  

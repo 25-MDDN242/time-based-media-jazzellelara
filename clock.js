@@ -65,6 +65,8 @@ function draw_clock(obj) {
   }
 
   if(firstRun){ //importing images
+    //~~~~~~~~~~~~background image~~~~~~~~~~~~
+    bg = loadImage('images/background.png');
     //~~~~~~~~~~~~slice images~~~~~~~~~~~~
     s1 = loadImage('images/slice1.png');
     s2 = loadImage('images/slice2.png');
@@ -93,6 +95,19 @@ function draw_clock(obj) {
     p10 = loadImage('images/plate10.png');
     p11 = loadImage('images/plate11.png');
     p12 = loadImage('images/plate12.png');
+    //~~~~~~~~~~~~empty plate images~~~~~~~~~~~~
+    ep1 = loadImage('images/emptyplate1.png');
+    ep2 = loadImage('images/emptyplate2.png');
+    ep3 = loadImage('images/emptyplate3.png');
+    ep4 = loadImage('images/emptyplate4.png');
+    ep5 = loadImage('images/emptyplate5.png');
+    ep6 = loadImage('images/emptyplate6.png');
+    ep7 = loadImage('images/emptyplate7.png');
+    ep8 = loadImage('images/emptyplate8.png');
+    ep9 = loadImage('images/emptyplate9.png');
+    ep10 = loadImage('images/emptyplate10.png');
+    ep11 = loadImage('images/emptyplate11.png');
+    ep12 = loadImage('images/emptyplate12.png');
     //~~~~~~~~~~~~fire images~~~~~~~~~~~~
     f1 = loadImage('images/fire1.png');
     f2 = loadImage('images/fire2.png');
@@ -111,6 +126,21 @@ function draw_clock(obj) {
     c10 = loadImage('images/candle10.png');
     c11 = loadImage('images/candle11.png');
     c12 = loadImage('images/candle12.png');
+    //~~~~~~~~~~~~strawberry plate images~~~~~~~~~~~~  
+    sbp = loadImage('images/strawberryplate.png');
+    //~~~~~~~~~~~~strawberry images~~~~~~~~~~~~  
+    b1 = loadImage('images/strawberry1.png');
+    b2 = loadImage('images/strawberry2.png');
+    b3 = loadImage('images/strawberry3.png');
+    b4 = loadImage('images/strawberry4.png');
+    b5 = loadImage('images/strawberry5.png');
+    b6 = loadImage('images/strawberry6.png');
+    b7 = loadImage('images/strawberry7.png');
+    b8 = loadImage('images/strawberry8.png');
+    b9 = loadImage('images/strawberry9.png');
+    b10 = loadImage('images/strawberry10.png');
+    b11 = loadImage('images/strawberry11.png');
+    b12 = loadImage('images/strawberry12.png');
     firstRun = false
   }
 
@@ -120,7 +150,7 @@ translate(width/2, height/2) //set default location to middle of screen
 function setTable() {
 
 //------------------------------Import Elements------------------------------
-  background("#fae")
+  background("ffffff")
 
   push()
   image(greyCircle, -170, -170); 
@@ -129,6 +159,10 @@ function setTable() {
 
   let s4X = 0 
   let s4Y = 0;
+
+  //image(bg, -480, -250);
+  //~~~~~~~~~~~~strawberry plate images~~~~~~~~~~~~
+  image(sbp, 228, 0);
 
   //~~~~~~~~~~~~slice images~~~~~~~~~~~~
   push()
@@ -292,7 +326,7 @@ function setTable() {
   if (minutes < 1) { //create slices to move out
     push()
     rotate(-120)
-    let emptyPlate = eval("p"+ReadableHour)
+    let emptyPlate = eval("ep"+ReadableHour)
    // console.log("p"+ReadableHour)
     let highlightedSlice = eval("s"+ReadableHour)
    // console.log("s"+ReadableHour)
@@ -313,9 +347,101 @@ function setTable() {
   }
 
 //------------------------------Minute Functions------------------------------
+if (minutes == 59){
+  //nothing
+} else if (minutes > 55 && minutes < 59) { 
+  image(b1, 228, 0);
+} else if (minutes > 50 && minutes < 56) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+} else if (minutes > 45 && minutes < 51) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+} else if (minutes > 40 && minutes < 46) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+} else if (minutes > 35 && minutes < 41) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+} else if (minutes > 30 && minutes < 36) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+} else if (minutes > 25 && minutes < 31) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+  image(b7, 228, 0);
+} else if (minutes > 20 && minutes < 26) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+  image(b7, 228, 0);
+  image(b8, 228, 0);
+} else if (minutes > 15 && minutes < 21) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+  image(b7, 228, 0);
+  image(b8, 228, 0);
+  image(b9, 228, 0);
+} else if (minutes > 10 && minutes < 16) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+  image(b7, 228, 0);
+  image(b8, 228, 0);
+  image(b9, 228, 0);
+  image(b10, 228, 0);
+} else if (minutes > 5 && minutes < 11) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+  image(b7, 228, 0);
+  image(b8, 228, 0);
+  image(b9, 228, 0);
+  image(b10, 228, 0);
+  image(b11, 228, 0);
+} else if (minutes > 0 && minutes < 6) { 
+  image(b1, 228, 0);
+  image(b2, 228, 0);
+  image(b3, 228, 0);
+  image(b4, 228, 0);
+  image(b5, 228, 0);
+  image(b6, 228, 0);
+  image(b7, 228, 0);
+  image(b8, 228, 0);
+  image(b9, 228, 0);
+  image(b10, 228, 0);
+  image(b11, 228, 0);
+  image(b12, 228, 0);
+}
 
 //------------------------------Second Functions------------------------------
-//could put seconds candles in a MASSIVE if statement
 if (seconds > 5){ //5
   push()
   rotate(-120)
@@ -404,17 +530,13 @@ if (seconds > 55){ //55 seconds
   pop()
 }
 
-if (seconds > 60){ //60 seconds 
+if (seconds == 59){ //60 seconds 
   push()
   rotate(-120)
   rotate(12 * 30)
   image(c12, 0, 0)
   pop()
 }
-
-
-  textSize(50); //hours debug
-  text(ReadableHour +M, -400, -160)
 
 //=========================END OF SET TABLE FUNCTION=========================
 }
@@ -450,7 +572,7 @@ function allCandle() {
     image(c12, 0, 0);
   pop()
   }
-
+  
 //------------------------------Alarm Functions------------------------------
 
 if (obj.seconds_until_alarm == -1) {
@@ -458,14 +580,14 @@ if (obj.seconds_until_alarm == -1) {
 } else if (obj.seconds_until_alarm > 2 && obj.seconds_until_alarm < 3) { //candles light
   allCandle()
 } else if (obj.seconds_until_alarm > 1 && obj.seconds_until_alarm < 2) { //candles flare
-  image(f1, -170, -170)
+  image(f1, -190, -190)
 } else if (obj.seconds_until_alarm > 0 && obj.seconds_until_alarm < 1) { //candles join
-  image(f2, -170, -170)
+  image(f2, -190, -190)
 } else if (obj.seconds_until_alarm == 0) { //candles engulf the cake in flames
     if (millis < 500) {
-      image(f3, -170, -170)
+      image(f3, -190, -190)
     } else { 
-      image(f4, -170, -170)
+      image(f4, -190, -190)
     }
 }
 

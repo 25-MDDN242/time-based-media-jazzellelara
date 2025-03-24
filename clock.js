@@ -66,7 +66,7 @@ function draw_clock(obj) {
 
   if(firstRun){ //importing images
     //~~~~~~~~~~~~background image~~~~~~~~~~~~
-    bg = loadImage('images/background.png');
+    bg = loadImage('images/tablecloth.png');
     //~~~~~~~~~~~~slice images~~~~~~~~~~~~
     s1 = loadImage('images/slice1.png');
     s2 = loadImage('images/slice2.png');
@@ -141,6 +141,9 @@ function draw_clock(obj) {
     b10 = loadImage('images/strawberry10.png');
     b11 = loadImage('images/strawberry11.png');
     b12 = loadImage('images/strawberry12.png');
+    //~~~~~~~~~~~~cake on plate images~~~~~~~~~~~~  
+    pc = loadImage('images/plateforcake.png');
+    ss = loadImage('images/singleslice.png');
     firstRun = false
   }
 
@@ -150,19 +153,13 @@ translate(width/2, height/2) //set default location to middle of screen
 function setTable() {
 
 //------------------------------Import Elements------------------------------
-  background("ffffff")
 
-  push()
-  image(greyCircle, -170, -170); 
-  //this circle will be replaced by the plate, it is currently 340px, if size changes coordinates will need to change. 
-  pop()
+  //~~~~~~~~~~~~background image~~~~~~~~~~~~
+  image(bg, -480, -250);
 
-  let s4X = 0 
-  let s4Y = 0;
-
-  //image(bg, -480, -250);
-  //~~~~~~~~~~~~strawberry plate images~~~~~~~~~~~~
+  //~~~~~~~~~~~~plate images~~~~~~~~~~~~
   image(sbp, 228, 0);
+  image(pc, -528, -300);
 
   //~~~~~~~~~~~~slice images~~~~~~~~~~~~
   push()
@@ -344,6 +341,10 @@ function setTable() {
     rotate(ReadableHour * 30)
     image(emptyPlate, 0, 0)
     pop()
+  }
+
+  if (ReadableHour > 1) { //makes cake slice appear after first slice is taken
+    image(ss, -528, -300);
   }
 
 //------------------------------Minute Functions------------------------------
